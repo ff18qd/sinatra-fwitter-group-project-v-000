@@ -54,7 +54,6 @@ class TweetsController < ApplicationController
   end
 
   patch "/tweets/:id" do
-    # binding.pry
     if params[:content] != "" && params[:content] != ""
       @tweet = Tweet.find_by(params[:id])
       @tweet.update(content: params["content"])
@@ -65,7 +64,6 @@ class TweetsController < ApplicationController
   end
 
   delete "/tweets/:id/delete" do
-    # binding.pry
     if logged_in?
       @tweet = Tweet.find_by(params[:id])
       if current_user.tweets.include?(@tweet)
